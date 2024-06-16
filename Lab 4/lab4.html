@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cars</title>
+		<style>
+			.biglist {
+                font-family: 'Trebuchet MS', sans-serif;
+                font-weight: bold;
+				list-style-type: upper-roman;
+				margin: 10px;
+				padding: 10px;
+			}
+			ul{
+				list-style-type: upper-alpha;
+			}
+			.biglist ul ol {
+				list-style-type: decimal;
+			}
+			.compact {
+				background-color: pink;
+			}
+			.midsize {
+				background-color: blue;
+			}
+			.sports {
+				background-color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ol class="biglist">
+            <div class="compact">
+                <li>Compact</li>
+                <ul>
+                    <li>Two Door</li>
+                    <ol>
+                        <li>Toyota 86</li>
+                        <li>Fiat 500</li>
+                        <li>Ford Fiesta ST</li>
+                    </ol>
+                    <li>Four Door</li>
+                    <ol>
+                        <li>Mazda 3</li>
+                        <li>Kia Forte</li>
+                        <li>Chevrolet Cruze</li>
+                    </ol>
+                </ul>
+            </div>
+            <div class="midsize">
+                <li>Midsize</li>
+                <ul>
+                    <li>Two Door</li>
+                    <ol>
+                        <li>Ford Mustang</li>
+                        <li>Nissan 370Z</li>
+                        <li>Mercedes-Benz C-Class Coupe</li>
+                    </ol>
+                    <li>Four Door</li>
+                    <ol>
+                        <li>Kia K5</li>
+                        <li>Subaru Legacy</li>
+                        <li>Chevrolet Malibu</li>
+                    </ol>
+                </ul>
+            </div>
+            <div class="sports">
+                <li>Sports</li>
+                <ul>
+                    <li>Coupe</li>
+                    <ol>
+                        <li>Nissan GT-R</li>
+                        <li>Chevrolet Camaro</li>
+                        <li>Lexus RC</li>
+                    </ol>
+                    <li>Convertible</li>
+                    <ol>
+                        <li>Fiat 124 Spider</li>
+                        <li>Jaguar F-Type</li>
+                        <li>Mercedes-Benz SLK</li>
+                    </ol>
+                </ul>
+            </div>
+        </ol>        
+	</body>
+</html>

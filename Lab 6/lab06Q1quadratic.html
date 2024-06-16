@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic Equation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        .mainqs {
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: green;
+            min-width: 30%;
+            min-height: 20vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        input[type="number"] {
+            width: 70px;
+            height: 40px;
+            font-size: 30px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        form {
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: lightgreen;
+            padding: 10px;
+            min-width: 90%;
+            display: flex;
+            justify-content: space-around;
+            font-size: 2rem;
+            color: black;
+
+        }
+
+        .answers {
+            font-size: 1.5em;
+            margin-top: 10px;
+            min-width: 90%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .back{
+            padding: 5px;
+            min-width: 10%;
+            background-color: white;
+            color: green;
+            border: 2px solid green;
+            border-radius: 5px;
+            margin: 10px;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .back:hover{
+            background-color: green;
+            color: white;
+            transition: all 0.5s ease-out;
+            cursor: pointer;
+        }
+        #ans1,#ans2{
+            font-size: 1.5em;
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function quadraticEquationSolver(a, b, c) {
+        let d = b * b - 4 * a * c;
+        if (d < 0) {
+            d = Math.abs(d);
+            let realPart = -b / (2 * a);
+            let imaginaryPart = Math.sqrt(d) / (2 * a);
+            return [realPart + " + " + imaginaryPart + "i", realPart + " - " + imaginaryPart + "i"];
+        };
+        if (d === 0) return [-b / (2 * a)];
+        return [(-b + Math.sqrt(d)) / (2 * a), (-b - Math.sqrt(d)) / (2 * a)];
+    }
+    </script>
+</head>
+
+<body>
+    <a href="./lab06Q1.html">
+    <button class="back">Back</button>
+    </a>
+    <div class="mainqs">
+        <h1>Quadratic Equation</h1>
+        <form action="">
+            <div class="xsq">
+                <input type="number" id="x^2">
+                <label for="x^2">x²</label>
+            </div>
+            +
+            <div class="x">
+                <input type="number" id="x">
+                <label for="x">x</label>
+            </div>
+            +
+            <div class="c">
+                <input type="number" id="c">
+                <label for="c"></label>
+            </div>
+        </form>
+        <div class="answers">
+            <div class="root1">
+                <label class="root1">Root1</label>
+                <label id="ans1"></label>
+            </div>
+            <div class="root2">
+                <label class="root2">Root2</label>
+                <label id="ans2"></label>
+            </div>
+        </div>
+    </div>
+    <button class="back solve">Solve</button>
+</body>
+<script>
+    let btn=document.querySelector(".solve");
+    btn.addEventListener("click",()=>{
+        let xsq= document.getElementById("x^2").value;
+        let x= document.getElementById("x").value;
+        let c= document.getElementById("c").value;
+        if(xsq=="" || x=="" || c==""){
+            alert("Please fill all the fields");
+            return;
+        }
+        let ans1= document.getElementById("ans1");
+        let ans2= document.getElementById("ans2");
+        let roots= quadraticEquationSolver(xsq,x,c);
+        console.log(roots);
+        if(roots.length==1){
+            ans1.innerHTML=roots[0];
+            ans2.innerHTML=roots[0];
+        }        
+        else{
+            ans1.innerHTML=roots[0];
+            ans2.innerHTML=roots[1];
+
+        }
+    });
+
+    
+</script>
+
+</html>

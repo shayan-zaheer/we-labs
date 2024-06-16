@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            padding: 5px;
+            min-width: 10%;
+            background-color: rgba(14, 94, 255, 0.897);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>
+        array = [78, 56, 45, 67, 98, 88, 65, 53, 84, 90, 65]
+    </h3>
+    <h5>Want to compute sum and average?</h5>
+    <button>Compute</button>
+</body>
+<script>
+    let arr = [78, 56, 45, 67, 98, 88, 65, 53, 84, 90, 65]
+    let btn = document.querySelector('button');
+    btn.addEventListener('click', () => {
+        let sum = arr.reduce((acc, curr) => {
+            return acc + curr;
+        })
+        let avg = sum / arr.length;
+        alert(`The sum of given array is ${sum}. \nThe average is ${avg}`);
+    })
+</script>
+
+</html>

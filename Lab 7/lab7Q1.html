@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<style>
+		* {
+			font-family: "Trebuchet MS", sans-serif;
+			margin: 5px;
+			box-sizing: border-box;
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+		}
+		input {
+			padding: 5px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+		}
+		input[type="submit"] {
+			width: 6em;
+			cursor: pointer;
+		}
+	</style>
+	<body>
+		<form id="form">
+			<div>
+				<label for="fname">First Name: </label>
+				<input type="text" name="fname" id="fname" />
+			</div>
+			<div>
+				<label for="minitial">Middle Initial: </label>
+				<input type="text" name="minitial" id="minitial" />
+			</div>
+			<div>
+				<label for="lname">Last Name: </label>
+				<input type="text" name="lname" id="lname" />
+			</div>
+			<div>
+				<label for="age">Age: </label>
+				<input type="number" name="age" id="age" />
+			</div>
+			<div>
+				<label for="weight">Weight: </label>
+				<input type="number" name="weight" id="weight" />
+			</div>
+			<div>
+				<input type="submit" value="Submit" />
+			</div>
+		</form>
+	</body>
+	<script>
+		const form = document.querySelector("#form");
+        form.addEventListener("submit", event => {
+            event.preventDefault();
+			const fname = document.querySelector("#fname").value;
+			const lname = document.querySelector("#lname").value;
+			const minitial = document.querySelector("#minitial").value;
+			const age = document.querySelector("#age").value;
+			const weight = document.querySelector("#weight").value;
+			const nameReg = /^([a-zA-Z]{3,20})$/; // must be betwen a-z or A-Z and have the range of 3-20
+			const initialReg = /^([A-Z]{1}\.)$/; // must have only one character between A-Z and a dot afterwards
+			const ageReg = /^(1[8-9]|[2-9]\d)$/; // must be between 18 to 99 , greater than 17
+			const weightReg = /^(8[0-9]|9[0-9]|1\d{2}|2\d{2}|300)$/; // must be between 80 to 300
+
+			if (!nameReg.test(fname)) {
+				return alert(
+					"First name should only have alphabetic characters and be between 3 to 20 characters long!"
+				);
+			}
+			if (!nameReg.test(lname)) {
+				return alert(
+					"Last name should only have alphabetic characters and be between 3 to 20 characters long!"
+				);
+			}
+			if (minitial && !initialReg.test(minitial)) {
+				return alert("Initials should be in the format 'A., B., C.' !");
+			}
+			if (!ageReg.test(age)) {
+				return alert("Age should be a number greater than 17!");
+			}
+			if (!weightReg.test(weight)) {
+				return alert("Weight should be in the range of 80 and 300!");
+			}
+			alert("Form submitted successfully!");
+        })
+	</script>
+</html>

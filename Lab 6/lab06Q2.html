@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let month=+prompt("Enter month number (1 to 12): ")
+        let year=+prompt("Enter year: ")
+        
+        if (month < 1 || month > 12) {
+        console.log("Invalid month. Please enter a value between 1 and 12.");
+    }
+
+    if (year < 1) {
+        console.log("Invalid year. Please enter a positive year.");
+    }
+    else{
+        const firstDay = new Date(year, month - 1, 1);
+
+        const lastDay = new Date(year, month, 0);
+
+        document.write("First day of the month: " + firstDay + "<br>" 
+        + "Last day of the month: " + lastDay + "<br>"
+        );
+
+
+    }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

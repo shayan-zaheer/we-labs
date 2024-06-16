@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 5px 5px 10px rgb(109, 230, 109);
+            padding: 1px;
+            width: 300px;
+            height: 410px;
+            background-color: green;
+        }
+
+        input[name="action"] {
+            width: 280px;
+            height: 60px;
+            font-size: 40px;
+            margin-bottom: 5px;
+            border: 2px solid black;
+        }
+
+        input[type="button"] {
+            width: 55px;
+            height: 50px;
+            margin-bottom: 2px;
+            background-color: lightgreen;
+            border: 2px solid black;
+        }
+
+        input[type="button"]:hover {
+            background-color: rgb(51, 234, 51);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <form action="" name="calc">
+            <center>
+                <input type="textfield" name="action" value="" size="18">
+                <br>
+                <table>
+                    <tr>
+                        <td>
+                            <input type="button" name=1 value="   1   " id="" onclick="press('1')">
+                        </td>
+                        <td>
+                            <input type="button" name=2 value="   2   " id="" onclick="press('2')">
+                        </td>
+                        <td>
+                            <input type="button" name=3 value="   3   " id="" onclick="press('3')">
+                        </td>
+                        <td>
+                            <input type="button" name=+ value="   +   " id="" onclick="press('+')">
+                        </td>
+                        <td>
+                            <input type="button" name="AC" value="   AC   " id=""
+                                onclick="document.calc.action.value=''">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" name=4 value="   4   " id="" onclick="press('4')">
+                        </td>
+                        <td>
+                            <input type="button" name=5 value="   5   " id="" onclick="press('5')">
+                        </td>
+                        <td>
+                            <input type="button" name=6 value="   6   " id="" onclick="press('6')">
+                        </td>
+                        <td>
+                            <input type="button" name=- value="   -   " id="" onclick="press('-')">
+                        </td>
+                        <td>
+                            <input type="button" name="square" value="   ^   " id="" onclick="press('^')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" name=7 value="   7   " id="" onclick="press('7')">
+                        </td>
+                        <td>
+                            <input type="button" name=8 value="   8   " id="" onclick="press('8')">
+                        </td>
+                        <td>
+                            <input type="button" name=9 value="   9   " id="" onclick="press('9')">
+                        </td>
+                        <td>
+                            <input type="button" name=/ value="   /   " id="" onclick="press('/')">
+                        </td>
+
+                        <td>
+                            <input type="button" name="(" value="   (   " id="" onclick="press('(')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" name=. value="   .   " id="" onclick="press('.')">
+                        </td>
+                        <td>
+                            <input type="button" name=0 value="   0   " id="" onclick="press('0')">
+                        </td>
+                        <td>
+                            <input type="button" name='=' value="   =   " id="equals">
+                        </td>
+                        <td>
+                            <input type="button" name=* value="   *   " id="" onclick="press('*')">
+                        </td>
+                        <td>
+                            <input type="button" name=")" value="   )   " id=""
+                                onclick="document.calc.action.value+=')'">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" name="sqrt" value="   sqrt   " id="" onclick="press('sqrt(')">
+                        </td>
+                        <td>
+                            <input type="button" name="log" value="   log   " id="" onclick="press('log(')">
+                        </td>
+                        <td>
+                            <input type="button" name='sin' value="   sin   " id="" onclick="press('sin(')">
+                        </td>
+                        <td>
+                            <input type="button" name="cos" value="   cos   " id="" onclick="press('cos(')">
+                        </td>
+                        <td>
+                            <input type="button" name="tan" value="   tan   " id="" onclick="press('tan(')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <a href="./lab06Q1quadratic.html"><input style="width: 100%;" type="button" name="quadsolver" value="   Quadratic Equation   " id="" ></a>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </form>
+    </div>
+</body>
+<script>
+    function press(num) {
+        if (document.calc.action.value === "Error") {
+            document.calc.action.value = "";
+        }
+        document.calc.action.value += num;
+    }
+    document.getElementById('equals').addEventListener('click', function (e) {
+        try {
+            let entryText = document.calc.action.value;
+            entryText = entryText.replace(/\^/g, "**");
+            entryText = entryText.replace(/sqrt\(/g, "Math.sqrt(");
+            entryText = entryText.replace(/log\(/g, "Math.log(");
+            entryText = entryText.replace(/sin\(/g, "Math.sin(");
+            entryText = entryText.replace(/cos\(/g, "Math.cos(");
+            entryText = entryText.replace(/tan\(/g, "Math.tan(");
+            console.log(entryText);
+            document.calc.action.value = eval(entryText);
+        } catch (err) {
+            document.calc.action.value = 'Error';
+            console.log(err);
+        }
+    });
+</script>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function checkDivisibility(num){
+            return num%3===0 && num%5===0;
+        }
+        let loopNo=+prompt("How many numbers do you want to write?");
+        let sum=0
+        let divisible=[]
+        for(let i=1;i<=loopNo;i++){
+            let num=+prompt(`Enter the ${i}(th) number: `);
+            if(checkDivisibility(num)) {
+                sum+=num;
+                divisible.push(num)
+            };
+        }
+        alert(`The numbers that are divisible by 3 and 5 are ${divisible}\nTheir sum is ${sum}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

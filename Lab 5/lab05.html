@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            padding: 5px;
+            min-width: 10%;
+            background-color: rgba(14, 94, 255, 0.897);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        tr,
+        td {
+            border: 1px solid black;
+            padding: 10px 20px;
+        }
+
+        th {
+            padding: 10px 20px;
+            visibility:hidden;
+            background-color: gray;
+            color: white;
+        }
+
+        .heading {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Square</th>
+                <th>Cube</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <button>Generate Tables</button>
+</body>
+<script>
+    document.querySelector('button').addEventListener('click', function () {
+        let table=document.querySelector('table')
+        let th = document.querySelectorAll('th')
+        let btn = document.querySelector('button');
+        let tbody = document.querySelector('tbody')
+        for (let item = 5; item <= 15; item++) {
+            tbody.innerHTML += `<tr><td>${item}</td> <td>${item * item}</td> <td>${item * item * item}</td></tr>`
+        }
+        btn.style.display = "none";
+        th.forEach(item=>{
+            console.log(item);
+            item.style.visibility="visible"
+            item.classList.add('heading');
+        })
+        table.classList.add('heading')
+    })
+</script>
+
+</html>

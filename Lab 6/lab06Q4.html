@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Food Center</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        .menu-section {
+            margin-bottom: 20px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        textarea {
+            width: 97%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            resize: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Fast Food Center</h1>
+
+        <div class="menu-section">
+            <h2>Starters</h2>
+            <select id="starters" multiple>
+                <option value="Spring Rolls" data-price="5">Spring Rolls - $5</option>
+                <option value="Chicken Wings" data-price="8">Chicken Wings - $8</option>
+                <option value="Nachos" data-price="7">Nachos - $7</option>
+            </select>
+        </div>
+
+        <div class="menu-section">
+            <h2>Major Foods</h2>
+            <select id="major-foods" multiple>
+                <option value="Burger" data-price="10">Burger - $10</option>
+                <option value="Pizza" data-price="12">Pizza - $12</option>
+                <option value="Pasta" data-price="9">Pasta - $9</option>
+            </select>
+        </div>
+
+        <div class="menu-section">
+            <h2>Desserts</h2>
+            <select id="desserts" multiple>
+                <option value="Ice Cream" data-price="4">Ice Cream - $4</option>
+                <option value="Brownie" data-price="5">Brownie - $5</option>
+                <option value="Cheesecake" data-price="6">Cheesecake - $6</option>
+            </select>
+        </div>
+
+        <button onclick="placeOrder()">Place Order</button>
+
+        <h2>Order Summary</h2>
+        <textarea id="order-summary" rows="10" cols="50" readonly></textarea>
+    </div>
+
+    <script>
+        function placeOrder() {
+
+            const starters = document.getElementById('starters');
+            const majorFoods = document.getElementById('major-foods');
+            const desserts = document.getElementById('desserts');
+            const orderSummary = document.getElementById('order-summary');
+
+            let orderDetails = 'Your Order:\n';
+            let total = 0;
+
+
+            function processSelections(selectElement, category) {
+                const selectedOptions = Array.from(selectElement.selectedOptions);
+                console.log(selectedOptions);
+                if (selectedOptions.length > 0) {
+                    orderDetails += `\n${category}:\n`;
+                    selectedOptions.forEach(option => {
+                        const itemName = option.value;
+                        const itemPrice = parseFloat(option.getAttribute('data-price'));
+                        orderDetails += `- ${itemName}: $${itemPrice}\n`;
+                        total += itemPrice;
+                    });
+                }
+            }
+
+            // Process each category
+            processSelections(starters, 'Starters');
+            processSelections(majorFoods, 'Major Foods');
+            processSelections(desserts, 'Desserts');
+
+            // Display total price
+            orderDetails += `\nTotal: $${total.toFixed(2)}`;
+
+            // Display the order summary in the text area
+            orderSummary.value = orderDetails;
+        }
+
+    </script>
+</body>
+
+</html>

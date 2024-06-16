@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+            button {
+                padding: 5px;
+                min-width: 10%;
+                background-color: white;
+                color: green;
+                border: 2px solid green;
+                border-radius: 5px;
+                margin: 10px;
+                font-weight: 500;
+                font-size: 1rem;
+            }
+
+            button:hover {
+                background-color: green;
+                color: white;
+                transition: all 0.5s ease-out;
+                cursor: pointer;
+            }
+    </style>
+</head>
+
+<body>
+    <button class="btn">Click Here</button>
+</body>
+    <script>
+        let btn=document.querySelector(".btn");
+        console.log(btn);
+        btn.addEventListener("click",(e)=>{
+            let num=prompt("Enter a number: ")
+            if(num[0]=='-'){
+                alert("Error: You entered a negative number ")
+            }
+            else{
+                document.write("You wrote ", num);
+            }
+        })
+    </script>
+
+</html>

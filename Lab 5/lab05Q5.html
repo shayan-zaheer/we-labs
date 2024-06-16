@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			*{
+                font-family: 'Trebuchet MS', sans-serif;
+				margin: 5px;
+				box-sizing: border-box;
+			}
+			form {
+				display: flex;
+                flex-direction: column;
+				flex-wrap: wrap;
+			}
+			input {
+				padding: 5px;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+			}
+            input[type="submit"]{
+                width: 6em;
+                cursor: pointer;
+            }
+			table {
+				border-collapse: collapse;
+				width: 100%;
+			}
+			th,
+			td {
+				border: 1px solid #ddd;
+				padding: 8px;
+				text-align: left;
+			}
+			th {
+				background-color: #f2f2f2;
+			}
+		</style>
+	</head>
+	<body>
+		<form id="form">
+			<div>
+				<label for="name">Name: </label>
+				<input type="text" name="name" id="name" />
+			</div>
+			<div>
+				<label for="father-name">Father's Name: </label>
+				<input type="text" name="father-name" id="father-name" />
+			</div>
+			<div>
+				<label for="dob">Date of Birth: </label>
+				<input type="date" name="dob" id="dob" />
+			</div>
+			<div>
+				<label for="age">Age: </label>
+				<input type="number" name="age" id="age" />
+			</div>
+			<div>
+				<label for="nationality">Nationality: </label>
+				<input type="text" name="nationality" id="nationality" />
+			</div>
+			<div>
+				<label for="sex">Sex: </label>
+				<input type="radio" name="sex" id="male" value="Male" />
+				<label for="male">Male</label>
+				<input type="radio" name="sex" id="female" value="Female" />
+				<label for="female">Female</label>
+			</div>
+			<div>
+				<label for="work-exp">Work Experience: (years) </label>
+				<input type="number" name="work-exp" id="work-exp" min="0" />
+			</div>
+			<div>
+				<label for="pro-skills">Professional Skills: </label>
+				<input type="text" name="pro-skills" id="pro-skills" />
+			</div>
+			<div>
+				<label for="awards">Awards: </label>
+				<input type="text" name="awards" id="awards" />
+			</div>
+			<div>
+				<label for="achievements">Achievements: </label>
+				<input type="text" name="achievements" id="achievements" />
+			</div>
+			<input type="submit" value="Submit" />
+		</form>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Father's Name</th>
+					<th>DOB</th>
+					<th>Age</th>
+					<th>Nationality</th>
+					<th>Sex</th>
+					<th>Work Exp</th>
+					<th>Pro Skills</th>
+					<th>Awards</th>
+					<th>Achievements</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</body>
+	<script>
+		const form = document.getElementById("form");
+		form.onsubmit = function (event) {
+			event.preventDefault();
+			let tbody = document.querySelector("tbody");
+			let tr = document.createElement("tr");
+			tbody.appendChild(tr);
+			for (let i = 0; i < 10; i++) {
+				tr.innerHTML += `<td>${event.target.children[i].children[1].value}</td>`;
+			}
+		};
+	</script>
+</html>

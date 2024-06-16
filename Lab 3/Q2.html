@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th{
+            text-align: right;
+        }
+        input[type="text"], textarea, select {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 4px;
+            margin-bottom: 4px;
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <form>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Last Name</th>
+                    <td colspan="3">
+                        <input type="text">
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th>First Name</th>
+                    <td colspan="3">
+                        <input type="text">
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th>Address</th>
+                    <td colspan="3">
+                        <textarea></textarea>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th>City</th>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <th>State</th>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th>Zip/Postal Code</th>
+                    <td colspan="3">
+                        <input type="text">
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th>Country</th>
+                    <td colspan="3">
+                        <select>
+                            <option value="bulgaria">Bulgaria</option>
+                            <option value="Pakistan">Pakistan</option>
+                        </select>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th>Phone (country code, area code, number)</th>
+                    <td colspan="3">
+                        (+<input type="text"></input>)<input type="text"></input> - <input type="text"></input>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th>Email</th>
+                    <td colspan="3">
+                        <input type="text">
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th>Birth date</th>
+                    <td colspan="3">
+                        Month <input type="text"></input> Day <input type="text"></input> Year (4 digit) <input type="text"></input>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th>Gender</th>
+                    <td colspan="3">
+                        <select>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th>Starting date</th>
+                    <td colspan="3">
+                        <input type="radio"> Spring 2006
+                        <input type="radio"> Summer 2006
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th>Comments/Questions</th>
+                    <td colspan="3">
+                        <textarea></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="lightblue" colspan="4">
+                        <center>
+                            <button>Submit</button>
+                            <button>Clear This Form</button>
+                        </center>
+                    </td>
+                </tr>
+            </tbody>
+        </table>  
+    </form>
+</body>
+</html>
